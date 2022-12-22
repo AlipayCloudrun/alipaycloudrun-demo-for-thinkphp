@@ -190,7 +190,7 @@ class Index
             $val = Cache::store('redis')->get($key);
             $res = [
                 "success" => true,
-                "data" => $val,
+                "data" => $val == '' ? 'nil' : $val,
                 "errorCode" => "",
                 "errorMessage" => ""
             ];

@@ -169,7 +169,7 @@
 <body>
   <script>
     function testService() {
-      $.ajax("/service", {
+      $.ajax("/service" + getParams(false), {
         method: "GET",
       }).done(function (res) {
         if (res.success) {
@@ -180,7 +180,7 @@
     }
 
     function testDatabase() {
-      $.ajax("/database/getList", {
+      $.ajax("/database/getList" + getParams(false), {
         method: "GET",
       }).done(function (res) {
         if (res.success === true && res.data != null) {
@@ -208,7 +208,7 @@
         testDatabase();
         return;
       }
-      $.ajax("/database/addRecord", {
+      $.ajax("/database/addRecord" + getParams(false), {
         method: "POST",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({
@@ -226,7 +226,7 @@
       $.ajax({
         type: "get", // 以get方式发起请求
         contentType: "application/json; charset=utf-8",
-        url: "/database/deleteRecord?id=" + id,
+        url: "/database/deleteRecord?id=" + id + getParams(true),
         success(data) {
           if (data.success === false || data.data === null) {
             $("#dbError").val("数据库异常,请参照项目目录下README.md文件配置数据库")
@@ -246,7 +246,7 @@
       $.ajax({
         type: "get", // 以get方式发起请求
         contentType: "application/json; charset=utf-8",
-        url: "/redis/set?key=" + key + "&value=" + value,
+        url: "/redis/set?key=" + key + "&value=" + value + getParams(true),
         success(res) {
           if (!res.success) {
             $("#redisError").val(
@@ -263,7 +263,7 @@
       $.ajax({
         type: "get", // 以get方式发起请求
         contentType: "application/json; charset=utf-8",
-        url: "/redis/get?key=" + key,
+        url: "/redis/get?key=" + key + getParams(true),
         success(res) {
           if (!res.success) {
             $("#redisError").val(
@@ -273,6 +273,17 @@
           $("#value").val(res.data);
         },
       });
+    }
+
+    function getParams(type) {
+      let params = window.location.search;
+      if (params == '' || params.indexOf('?') != 0) {
+        return '';
+      }
+      if (type) {
+        params = params.replace('?', '&');
+      }
+      return params;
     }
   </script>
 
