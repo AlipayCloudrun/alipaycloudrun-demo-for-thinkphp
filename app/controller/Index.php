@@ -43,10 +43,9 @@ class Index
         $res = [];
         $rs = 'Y';
         try {
-            $time = date('Y-m-d H:i:s', time());
             $hostName = getenv('HOSTNAME') == null ? 'thinkphp_demo' : getenv('HOSTNAME');
             $serviceVersion = getenv('PUB_SERVICE_REVISION') == null ? 'thinkphp_demo' : getenv('PUB_SERVICE_REVISION');
-            $str = '欢迎使用云托管!服务版本：' . $serviceVersion . ' 实例主机：' . $hostName . ' 当前时间：' . $time;
+            $str = '欢迎使用云托管!&服务版本：' . $serviceVersion . '&实例主机：' . $hostName;
             $res = [
                 "success" => true,
                 "data" => $str,
