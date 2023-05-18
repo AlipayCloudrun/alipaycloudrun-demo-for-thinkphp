@@ -6,6 +6,7 @@
 ## 云托管部署
 #### 1.下载代码
 #### 2.快速部署
+登录[小程序云托管平台](https://cloudrun.alipay.com/cloudrun),
 参照[小程序云托管快速部署](https://opendocs.alipay.com/pre-open/04n0zd),
 可选择手工打镜像上传、直接上传代码文件夹、自定义流水线部署，服务端口及探活端口填写80
 #### 3.服务访问
