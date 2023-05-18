@@ -21,7 +21,7 @@ RUN yum update -y && yum install -y epel-release \
 COPY . /app
 
 # 替换nginx、fpm、php配置
-RUN cp /app/config/nginx.conf /etc/nginx/nginx.conf \
+RUN cp /app/conf/nginx.conf /etc/nginx/nginx.conf \
     && cp -f /app/conf/fpm.conf /etc/opt/remi/php74/php-fpm.d/www.conf \
     && cp -f /app/conf/php.ini /etc/opt/remi/php74/php.ini \
     && chmod 777 /var/opt/remi/php74/lib/php/session \
