@@ -1,5 +1,5 @@
 # 采用centos官方镜像做为运行时镜像
-FROM centos:7.2.1511
+FROM registry.cloudrun.cloudbaseapp.cn/cloudrun/centos:7
 
 # 设定工作目录
 WORKDIR /app
