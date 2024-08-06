@@ -8,7 +8,7 @@ class ElasticScalingService
     public function __construct()
     {
         // 获取 CPU 核心数量并确保其为整数
-        $this->cpuCores = 12;
+        $this->cpuCores = max(1, (int) trim(shell_exec('nproc')));
     }
 
     public function cpuUpdate($percentage)
