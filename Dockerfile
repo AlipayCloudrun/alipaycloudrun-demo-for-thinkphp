@@ -13,14 +13,6 @@ RUN sed -i 's|^mirrorlist=|#mirrorlist=|g' /etc/yum.repos.d/CentOS-Base.repo && 
     sed -i 's|^#baseurl=http://mirror.centos.org|baseurl=http://mirrors.aliyun.com|g' /etc/yum.repos.d/CentOS-Base.repo
 
 # 安装基础命令和依赖库
-#RUN yum update -y && yum install -y epel-release \
-#    && rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
-#    && yum install -y php74 php74-php-fpm php74-php-mysqlnd php74-php-opcache php74-php-xml \
-#    php74-php-gd php74-php-devel php74-php-mbstring php74-php-json php74-php-bcmath \
-#    php74-php-pdo php74-php-gd php74-php-pecl-zip php74-php-process \
-#    nginx vim wget net-tools iproute libzip telnet lsof less java-1.8.0-openjdk \
-#    && rm -rf /var/cache/yum/*
-# 安装基础命令和依赖库
 RUN yum update -y && yum install -y epel-release \
     && rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
     && yum install -y php74 php74-php-fpm php74-php-mysqlnd php74-php-opcache php74-php-xml \
