@@ -3,6 +3,12 @@
 // | 路由设置
 // +----------------------------------------------------------------------
 
+use think\facade\Route;
+
+// 定义新的路由规则
+Route::get('/elastic/scaling/cpu/update', 'app\controller\ElasticScalingController@memoryUpdate');
+Route::get('/elastic/scaling/cpu/clean', 'app\controller\ElasticScalingController@memoryClean');
+
 return [
     // pathinfo分隔符
     'pathinfo_depr'         => '/',
